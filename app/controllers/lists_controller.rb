@@ -14,7 +14,6 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.find(params[:id])
     @list = List.new(list_params)
     if @list.save
       redirect_to list_path(@list)
@@ -26,7 +25,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:lists).permit(:name)
+    params.require(:list).permit(:name)
   end
 
   def set_list
