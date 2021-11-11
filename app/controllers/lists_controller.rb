@@ -5,30 +5,31 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:id])
+    @bookmark = Bookmark.new
   end
 
   def new
+    @list = List.new
   end
 
   def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @list = List.find(params[:id])
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render 'new'
+    end
   end
 
   private
 
   def list_params
-
+    params.require(:lists).permit(:name)
   end
 
   def set_list
-    @list = List.find()
+    @list = List.find(params[:id])
   end
 end
