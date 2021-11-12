@@ -1,16 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>My Lists</h1>
-      <ul class="list-group">
-        <% @lists.each do |list| %>
-          <li class="list-group-item">
-            <%= link_to list.name, list_path(list) %>
-          </li>
-        <% end %>
-        <%= link_to 'Create a list', new_list_path %>
-
-      </ul>
+<div>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://pyxis.nymag.com/v1/imgs/978/4d0/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.2x.rhorizontal.w700.jpg);">
+    <div class="container">
+      <h1>Don't lose track</h1>
+      <p>Save your <strong>movies</strong> in <strong>watch lists</strong>!</p>
+      <a class="btn btn-flat btn-text-white" <%= link_to 'Create your first list now', new_list_path %></a>
     </div>
   </div>
 </div>
+<h1>My Lists</h1>
+  <ul class="list-group">
+    <% @lists.each do |list| %>
+      <li class="list-group-item">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/200)">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<%= link_to 'Create a list', new_list_path %>
