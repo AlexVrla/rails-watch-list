@@ -1,6 +1,14 @@
 .btn-text-white {
   color:white;
+  font-family: 'Buda', cursive;  display: flex;
+  justify-content: center;
   &:hover{
     color:gray;
   }
+}
+
+#create-list {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
 }
